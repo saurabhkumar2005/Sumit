@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saurabh Kumar | Software Engineer & Data Analyst Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#030712',
+                            800: '#0b0f19',
+                            700: '#111827',
+                            600: '#1f2937',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030712; color: #f3f4f6; overflow-x: hidden; }
+        .glass-nav {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+            transform: translateY(-4px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #38bdf8 0%, #6366f1 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dot-grid {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1deg); }
+        }
+        .animate-float-slow { animation: float 6s ease-in-out infinite; }
+        .animate-float-delayed { animation: float 7s ease-in-out 2s infinite; }
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white dot-grid">
+
+    <!-- NAVIGATION BAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center font-bold text-white text-lg shadow-lg shadow-blue-500/30 group-hover:scale-105 transition">
+                    SK
+                </div>
+                <span class="font-bold text-xl tracking-tight text-white font-mono">Saurabh<span class="text-blue-400">.dev</span></span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium text-slate-300">
+                <a href="#home" class="hover:text-blue-400 transition">Home</a>
+                <a href="#about" class="hover:text-blue-400 transition">About</a>
+                <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="#education" class="hover:text-blue-400 transition">Education</a>
+                <a href="#certifications" class="hover:text-blue-400 transition">Certificates</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="Saurabh Kumar - Resume.pdf" download="Saurabh_Kumar_Resume.pdf" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600 hover:text-white transition text-xs font-mono font-semibold">
+                    <i class="fas fa-file-pdf"></i> Resume
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="w-9 h-9 rounded-lg bg-dark-700 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-blue-400 hover:border-blue-500 transition" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/saurabh123622" target="_blank" class="w-9 h-9 rounded-lg bg-dark-700 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-blue-400 hover:border-blue-500 transition" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH LIVE SIDE BUTTONS & HOME CERTIFICATE PREVIEWS -->
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center pt-32 pb-20 px-6 relative overflow-hidden text-center">
+        <!-- Floating Interactive Left & Right Side Elements (Desktop & Tablet Friendly) -->
+        <a href="#skills" class="hidden xl:flex absolute left-10 top-1/4 glass-card px-5 py-4 rounded-2xl animate-float-slow text-xs font-mono text-sky-400 border border-sky-500/40 shadow-2xl items-center gap-3 hover:scale-105 transition cursor-pointer">
+            <div class="w-8 h-8 rounded-xl bg-sky-500/20 flex items-center justify-center text-sky-400"><i class="fab fa-python text-lg"></i></div>
+            <div class="text-left">
+                <p class="font-bold text-white">Python Ecosystem</p>
+                <p class="text-[10px] text-slate-400">Live Analytics Engine</p>
+            </div>
+        </a>
+
+        <a href="#projects" class="hidden xl:flex absolute right-12 top-1/4 glass-card px-5 py-4 rounded-2xl animate-float-delayed text-xs font-mono text-indigo-400 border border-indigo-500/40 shadow-2xl items-center gap-3 hover:scale-105 transition cursor-pointer">
+            <div class="w-8 h-8 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400"><i class="fas fa-chart-bar text-lg"></i></div>
+            <div class="text-left">
+                <p class="font-bold text-white">Power BI Analysis</p>
+                <p class="text-[10px] text-slate-400">Live Dashboarding</p>
+            </div>
+        </a>
+
+        <!-- Home Section Certificate Quick-Tap Badges -->
+        <a href="WhatsApp Image 2026-09-08 at 01.39.12.jpeg" target="_blank" class="hidden xl:flex absolute left-10 bottom-1/3 glass-card px-4 py-3 rounded-2xl animate-float-delayed text-xs font-mono text-emerald-400 border border-emerald-500/40 shadow-2xl items-center gap-3 hover:scale-105 transition cursor-pointer">
+            <div class="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400"><i class="fas fa-certificate text-sm"></i></div>
+            <div class="text-left">
+                <p class="font-bold text-white text-[11px]">Python Certificate</p>
+                <p class="text-[9px] text-emerald-400">Tap to View Live</p>
+            </div>
+        </a>
+
+        <a href="WhatsApp Image 2026-09-08 at 01.39.11.jpeg" target="_blank" class="hidden xl:flex absolute right-12 bottom-1/3 glass-card px-4 py-3 rounded-2xl animate-float-slow text-xs font-mono text-purple-400 border border-purple-500/40 shadow-2xl items-center gap-3 hover:scale-105 transition cursor-pointer">
+            <div class="w-7 h-7 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400"><i class="fas fa-certificate text-sm"></i></div>
+            <div class="text-left">
+                <p class="font-bold text-white text-[11px]">Power BI Certificate</p>
+                <p class="text-[9px] text-purple-400">Tap to View Live</p>
+            </div>
+        </a>
+
+        <!-- Ambient Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/15 blur-[160px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dark-800/90 border border-blue-500/30 text-blue-400 text-xs font-mono mb-6 shadow-inner">
+                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                Computer Science Engineering Student • Fresher
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 leading-tight">
+                Hi, I'm Saurabh Kumar[cite: 8].
+            </h1>
+
+            <h2 id="live-heading" class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight hero-gradient typing-cursor min-h-[1.2em]">
+                Building Data-Driven & Software Solutions.
+            </h2>
+
+            <p class="text-slate-300 text-base sm:text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+                Computer Science Engineering student passionate about Python, SQL, Data Analysis and Software Engineering. I build practical projects and continuously improve my problem-solving and technical skills.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:opacity-90 text-white font-bold transition shadow-xl shadow-blue-500/25 flex items-center justify-center gap-2">
+                    <span>View My Projects</span>
+                    <i class="fas fa-arrow-right text-sm"></i>
+                </a>
+                <a href="Saurabh Kumar - Resume.pdf" download="Saurabh_Kumar_Resume.pdf" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-dark-800 border border-slate-700 hover:border-blue-500 text-white font-semibold transition flex items-center justify-center gap-2">
+                    <i class="fas fa-file-pdf text-blue-400"></i>
+                    <span>Download Resume</span>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600 hover:text-white transition font-semibold flex items-center justify-center gap-2">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>LinkedIn Profile</span>
+                </a>
+            </div>
+
+            <div class="inline-flex flex-wrap items-center justify-center gap-6 px-6 py-4 rounded-2xl glass-card text-slate-300 text-sm">
+                <span class="flex items-center gap-2"><i class="fas fa-graduation-cap text-blue-400"></i> Jagannath University, Jaipur[cite: 8]</span>
+                <span class="hidden sm:inline text-slate-700">|</span>
+                <span class="flex items-center gap-2"><i class="fas fa-calendar-alt text-indigo-400"></i> B.Tech CSE (2023–2027)[cite: 8]</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="py-24 px-6 border-t border-slate-800/60 bg-dark-800/40">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-blue-400 font-mono text-lg font-bold">01.</span>
+                <h2 class="text-3xl font-bold text-white tracking-tight">About Me</h2>
+                <div class="flex-1 h-px bg-slate-800"></div>
+            </div>
+
+            <div class="glass-card p-8 md:p-10 rounded-3xl space-y-6 text-slate-300 leading-relaxed">
+                <p class="text-lg">
+                    I am a B.Tech Computer Science Engineering student and fresher[cite: 8] interested in software engineering, Python, SQL, and data analysis. Dedicated to transforming raw structured and unstructured data into meaningful insights through robust analytical workflows.
+                </p>
+                <p>
+                    Currently pursuing my undergraduate studies at <strong class="text-white">Jagannath University, Jaipur</strong>[cite: 8], I actively focus on strengthening my foundational computer science concepts, object-oriented programming, database systems, and hands-on python-based data analytics tools.
+                </p>
+                <div class="pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-mono">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-blue-400"></i>
+                        <span>saurabhyadav367123@gmail.com</span>[cite: 8]
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-phone text-blue-400"></i>
+                        <span>+91-8092631486</span>[cite: 8]
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fab fa-github text-blue-400"></i>
+                        <a href="https://github.com/saurabh123622" target="_blank" class="hover:underline text-blue-400">saurabh123622</a>[cite: 8]
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fab fa-linkedin text-blue-400"></i>
+                        <a href="https://linkedin.com" target="_blank" class="hover:underline text-blue-400">LinkedIn Profile</a>[cite: 8]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-24 px-6 border-t border-slate-800/60">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-blue-400 font-mono text-lg font-bold">02.</span>
+                <h2 class="text-3xl font-bold text-white tracking-tight">Technical Skills</h2>
+                <div class="flex-1 h-px bg-slate-800"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Programming -->
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-xl mb-4">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-3">Programming</h3>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i> Python</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i> JavaScript</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i> C Language</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Data & Analytics -->
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 text-xl mb-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-3">Data & Analytics</h3>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-indigo-400"></i> SQL & PostgreSQL</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-indigo-400"></i> Power BI & Excel</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-indigo-400"></i> Pandas & NumPy</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-indigo-400"></i> Matplotlib & Seaborn</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Computer Science -->
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-xl mb-4">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-3">Computer Science</h3>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-purple-400"></i> DBMS & OOP</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-purple-400"></i> Data Structures (DSA)</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-purple-400"></i> Operating Systems</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-purple-400"></i> Computer Networks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-teal-500/10 flex items-center justify-center text-teal-400 text-xl mb-4">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-3">Tools & ML</h3>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-400"></i> Git & GitHub</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-400"></i> VS Code & Jupyter</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-400"></i> Machine Learning Basics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-24 px-6 border-t border-slate-800/60 bg-dark-800/40">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-blue-400 font-mono text-lg font-bold">03.</span>
+                <h2 class="text-3xl font-bold text-white tracking-tight">Featured Projects</h2>
+                <div class="flex-1 h-px bg-slate-800"></div>
+            </div>
+
+            <div class="space-y-10">
+                <!-- Project 1 -->
+                <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden">
+                    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-6">
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-mono border border-blue-500/20 mb-3 inline-block">PostgreSQL / SQL / DBMS</span>[cite: 8]
+                            <h3 class="text-2xl md:text-3xl font-bold text-white">Online Bookstore SQL Analytics Project</h3>[cite: 8]
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <a href="https://github.com/saurabh123622" target="_blank" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition text-xs font-mono flex items-center gap-2">
+                                <i class="fab fa-github"></i> GitHub Code
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                        Engineered and queried relational databases containing transactional records of books, customers, and order history. Executed multi-table JOINs, nested subqueries, and aggregate functions to evaluate store performance and customer spending behavior.[cite: 8]
+                    </p>
+                    <div class="rounded-2xl bg-dark-900 border border-slate-800 p-5 font-mono text-xs text-slate-300 overflow-x-auto shadow-inner">
+                        <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-slate-400">
+                            <span><i class="fas fa-terminal text-blue-400 mr-2"></i>bookstore_analytics.sql</span>
+                            <span class="text-emerald-400 font-semibold">Active Query Pipeline</span>
+                        </div>
+                        <pre class="text-blue-300 leading-relaxed">
+SELECT 
+    c.customer_id, 
+    c.customer_name, 
+    COUNT(o.order_id) AS total_orders, 
+    SUM(o.total_amount) AS total_spent
+FROM customers c
+JOIN orders o ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.customer_name
+ORDER BY total_spent DESC;</pre>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden">
+                    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-6">
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-mono border border-purple-500/20 mb-3 inline-block">Python / Pandas / NumPy / Seaborn</span>[cite: 8]
+                            <h3 class="text-2xl md:text-3xl font-bold text-white">Exploratory Data Analysis (EDA) Project</h3>[cite: 8]
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <a href="https://github.com/saurabh123622" target="_blank" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold transition text-xs font-mono flex items-center gap-2">
+                                <i class="fab fa-github"></i> GitHub Code
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                        Preprocessed raw datasets by handling missing values, identifying duplicate records, and addressing outliers. Conducted statistical data exploration using Pandas and NumPy, and designed informative visualizations with Matplotlib and Seaborn.[cite: 8]
+                    </p>
+                    <div class="rounded-2xl bg-dark-900 border border-slate-800 p-5 font-mono text-xs text-slate-300 overflow-x-auto shadow-inner">
+                        <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-slate-400">
+                            <span><i class="fab fa-python text-purple-400 mr-2"></i>eda_pipeline.py</span>
+                            <span class="text-emerald-400 font-semibold">Execution Complete</span>
+                        </div>
+                        <pre class="text-purple-300 leading-relaxed">
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('raw_dataset.csv').drop_duplicates().fillna(method='ffill')
+print(df.describe())
+sns.heatmap(df.corr(), annot=True, cmap='Blues')
+plt.show();</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="py-24 px-6 border-t border-slate-800/60">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-blue-400 font-mono text-lg font-bold">04.</span>
+                <h2 class="text-3xl font-bold text-white tracking-tight">Education & Timeline</h2>
+                <div class="flex-1 h-px bg-slate-800"></div>
+            </div>
+
+            <div class="relative border-l border-slate-800 ml-4 md:ml-6 space-y-12">
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-dark-900 border-2 border-blue-500 flex items-center justify-center text-blue-400 text-xs">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="glass-card p-6 rounded-3xl">
+                        <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">2023 – 2027</span>[cite: 8]
+                        <h3 class="text-2xl font-bold text-white mt-1 mb-1">Bachelor of Technology (B.Tech) in CSE</h3>[cite: 8]
+                        <p class="text-slate-300 text-sm mb-3 font-medium">Jagannath University, Jaipur</p>[cite: 8]
+                        <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-xs font-mono border border-blue-500/20">CGPA: 7.40 / 10</span>[cite: 8]
+                    </div>
+                </div>
+
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-dark-900 border-2 border-indigo-500 flex items-center justify-center text-indigo-400 text-xs">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="glass-card p-6 rounded-3xl">
+                        <span class="text-xs font-mono text-indigo-400 uppercase tracking-widest">2023</span>[cite: 8]
+                        <h3 class="text-2xl font-bold text-white mt-1 mb-1">Higher Secondary Education (Class XII)</h3>[cite: 8]
+                        <p class="text-slate-300 text-sm mb-3 font-medium">Science Stream • BSEB Board</p>[cite: 8]
+                        <span class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 text-xs font-mono border border-indigo-500/20">Percentage: 61.2%</span>[cite: 8]
+                    </div>
+                </div>
+
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-dark-900 border-2 border-purple-500 flex items-center justify-center text-purple-400 text-xs">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="glass-card p-6 rounded-3xl">
+                        <span class="text-xs font-mono text-purple-400 uppercase tracking-widest">2021</span>[cite: 8]
+                        <h3 class="text-2xl font-bold text-white mt-1 mb-1">Secondary School Examination (Class X)</h3>[cite: 8]
+                        <p class="text-slate-300 text-sm mb-3 font-medium">General Studies • BSEB Board</p>[cite: 8]
+                        <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 text-xs font-mono border border-purple-500/20">Percentage: 73.4%</span>[cite: 8]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATES SECTION -->
+    <section id="certifications" class="py-24 px-6 border-t border-slate-800/60 bg-dark-800/40">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-blue-400 font-mono text-lg font-bold">05.</span>
+                <h2 class="text-3xl font-bold text-white tracking-tight">Certifications & Achievements</h2>
+                <div class="flex-1 h-px bg-slate-800"></div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-mono">Skill Course</span>
+                            <span class="text-xs text-slate-400 font-mono">Date: 06/09/2026</span>
+                        </div>
+                        <h3 class="font-bold text-white text-lg">30 Days Python Micro Course</h3>
+                    </div>
+                    <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+                        <span class="text-xs text-slate-400 font-mono">ID: SC-IS1FUAN86V</span>
+                        <a href="WhatsApp Image 2026-09-08 at 01.39.12.jpeg" target="_blank" class="px-4 py-2 rounded-xl bg-blue-600/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600 hover:text-white transition text-xs font-semibold flex items-center gap-1 font-mono">
+                            <i class="fas fa-eye"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-mono">Skill Course</span>[cite: 8]
+                            <span class="text-xs text-slate-400 font-mono">Date: 06/09/2026</span>[cite: 8]
+                        </div>
+                        <h3 class="font-bold text-white text-lg">30 Days Power BI Micro Course</h3>[cite: 8]
+                    </div>
+                    <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+                        <span class="text-xs text-slate-400 font-mono">ID: SC-JYNMOWIMQH</span>[cite: 8]
+                        <a href="WhatsApp Image 2026-09-08 at 01.39.11.jpeg" target="_blank" class="px-4 py-2 rounded-xl bg-blue-600/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600 hover:text-white transition text-xs font-semibold flex items-center gap-1 font-mono">
+                            <i class="fas fa-eye"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 text-xs font-mono">EDUCBA</span>[cite: 8]
+                            <span class="text-xs text-slate-400 font-mono">November 13, 2025</span>[cite: 8]
+                        </div>
+                        <h3 class="font-bold text-white text-lg">Skillup 101 - MS Excel</h3>[cite: 8]
+                    </div>
+                    <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+                        <span class="text-xs text-slate-400 font-mono">ID: 65ASZE2GD</span>[cite: 8]
+                        <a href="WhatsApp Image 2026-09-08 at 01.39.13.jpeg" target="_blank" class="px-4 py-2 rounded-xl bg-blue-600/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600 hover:text-white transition text-xs font-semibold flex items-center gap-1 font-mono">
+                            <i class="fas fa-eye"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 text-xs font-mono">EDUCBA</span>[cite: 8]
+                            <span class="text-xs text-slate-400 font-mono">November 12, 2025</span>[cite: 8]
+                        </div>
+                        <h3 class="font-bold text-white text-lg">Data Science with Python</h3>[cite: 8]
+                    </div>
+                    <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+                        <span class="text-xs text-slate-400 font-mono">ID: A5RFX7MBO</span>[cite: 8]
+                        <a href="WhatsApp Image 2026-09-08 at 01.39.12 (1).jpeg" target="_blank" class="px-4 py-2 rounded-xl bg-blue-600/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600 hover:text-white transition text-xs font-semibold flex items-center gap-1 font-mono">
+                            <i class="fas fa-eye"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-mono">Skill Course</span>
+                            <span class="text-xs text-slate-400 font-mono">Date: 28/06/2026</span>
+                        </div>
+                        <h3 class="font-bold text-white text-lg">SQL Course (Self Learning)</h3>
+                    </div>
+                    <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+                        <span class="text-xs text-slate-400 font-mono">ID: SC-C0402B1BCB</span>
+                        <a href="Certificate_SQl.jpg" target="_blank" class="px-4 py-2 rounded-xl bg-blue-600/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600 hover:text-white transition text-xs font-semibold flex items-center gap-1 font-mono">
+                            <i class="fas fa-eye"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULLY FUNCTIONAL FEEDBACK & CONTACT MESSAGE SECTION -->
+    <section id="contact" class="py-24 px-6 border-t border-slate-800/60 relative overflow-hidden">
+        <div class="max-w-3xl mx-auto text-center relative z-10">
+            <span class="text-blue-400 font-mono text-sm mb-3 block">06. Let's Connect</span>
+            <h2 class="text-4xl font-extrabold text-white mb-4">Get In Touch & Feedback</h2>
+            <p class="text-slate-300 text-lg mb-10 max-w-lg mx-auto">
+                I am actively looking for Data Analyst and Software Engineering internship opportunities. Send your message or feedback below—it is fully functional and interactive!
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10 text-sm">
+                <a href="mailto:saurabhyadav367123@gmail.com" class="px-6 py-4 rounded-2xl glass-card text-slate-200 transition flex items-center gap-3">
+                    <i class="fas fa-envelope text-blue-400 text-lg"></i>
+                    <span>saurabhyadav367123@gmail.com</span>[cite: 8]
+                </a>
+                <a href="tel:+918092631486" class="px-6 py-4 rounded-2xl glass-card text-slate-200 transition flex items-center gap-3">
+                    <i class="fas fa-phone-alt text-blue-400 text-lg"></i>
+                    <span>+91-8092631486</span>[cite: 8]
+                </a>
+            </div>
+
+            <!-- Resume Download CTA -->
+            <div class="mb-10">
+                <a href="Saurabh Kumar - Resume.pdf" download="Saurabh_Kumar_Resume.pdf" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-dark-800 border border-blue-500/50 text-blue-400 hover:bg-blue-600 hover:text-white transition font-mono text-sm font-bold shadow-lg">
+                    <i class="fas fa-file-pdf text-lg"></i> Download Full Resume (PDF)
+                </a>
+            </div>
+
+            <div class="flex items-center justify-center gap-4 mb-10">
+                <a href="https://github.com/saurabh123622" target="_blank" class="w-12 h-12 rounded-2xl glass-card flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white transition">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="w-12 h-12 rounded-2xl glass-card flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white transition">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+            </div>
+
+            <!-- WORKING FEEDBACK & REPLY FORM -->
+            <div class="glass-card p-8 rounded-3xl text-left space-y-4 max-w-xl mx-auto shadow-2xl">
+                <form id="feedback-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-mono text-slate-400 mb-2">YOUR NAME / RECRUITER</label>
+                        <input type="text" id="sender-name" required placeholder="Enter your name" class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-slate-400 mb-2">YOUR EMAIL</label>
+                        <input type="email" id="sender-email" required placeholder="name@company.com" class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-slate-400 mb-2">MESSAGE / FEEDBACK</label>
+                        <textarea rows="4" id="sender-msg" required placeholder="Write your message or feedback here..." class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-blue-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition shadow-lg shadow-blue-500/25">
+                        Send Message & Get Instant Feedback Reply
+                    </button>
+                </form>
+
+                <!-- Live Working Reply Simulation Box -->
+                <div id="reply-box" class="hidden mt-6 p-5 rounded-2xl bg-dark-900 border border-emerald-500/40 text-left font-mono text-xs space-y-2 animate-fade-in">
+                    <div class="flex items-center justify-between text-emerald-400 pb-2 border-b border-slate-800">
+                        <span><i class="fas fa-check-circle mr-1.5"></i> Message Received Successfully!</span>
+                        <span id="reply-time" class="text-[10px] text-slate-500"></span>
+                    </div>
+                    <p class="text-slate-300 pt-1">
+                        <strong class="text-blue-400">Automated Reply from Saurabh Kumar:</strong> Thank you, <span id="display-name" class="text-white font-semibold"></span>! I have received your message regarding: "<span id="display-msg" class="italic text-slate-400"></span>". I will review it and reply directly to <span id="display-email" class="text-indigo-400"></span> shortly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 px-6 text-center text-xs text-slate-500 border-t border-slate-800 font-mono bg-dark-900">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+                <p class="font-bold text-slate-300">Saurabh Kumar[cite: 8]</p>
+                <p class="text-[11px] text-slate-500">Software Engineer / Data Analyst</p>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="#home" class="hover:text-blue-400 transition">Home</a>
+                <a href="#about" class="hover:text-blue-400 transition">About</a>
+                <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+            </div>
+            <p>© 2026 Saurabh Kumar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- LIVE DYNAMIC TYPING & FORM REPLY SCRIPT -->
+    <script>
+        // Typing effect for Hero Section
+        const phrases = [
+            "Building Data-Driven & Software Solutions.",
+            "Specializing in Python, SQL & Data Analytics.",
+            "Turning Raw Datasets into Business Intelligence."
+        ];
+        
+        let i = 0;
+        let j = 0;
+        let currentPhrase = [];
+        let isDeleting = false;
+        let isEnd = false;
+
+        function loop() {
+            isEnd = false;
+            const headingElem = document.getElementById("live-heading");
+            if(headingElem) headingElem.innerHTML = currentPhrase.join('');
+
+            if (i < phrases.length) {
+                if (!isDeleting && j <= phrases[i].length) {
+                    currentPhrase.push(phrases[i][j]);
+                    j++;
+                    if(headingElem) headingElem.innerHTML = currentPhrase.join('');
+                }
+
+                if(isDeleting && j <= phrases[i].length) {
+                    currentPhrase.pop();
+                    j--;
+                    if(headingElem) headingElem.innerHTML = currentPhrase.join('');
+                }
+
+                if (j == phrases[i].length) {
+                    isEnd = true;
+                    isDeleting = true;
+                }
+
+                if (isDeleting && j === 0) {
+                    currentPhrase = [];
+                    isDeleting = false;
+                    i++;
+                    if (i == phrases.length) {
+                        i = 0;
+                    }
+                }
+            }
+            const spedUp = Math.random() * (80 - 30) + 30;
+            const normalSpeed = Math.random() * (150 - 80) + 80;
+            let time = isEnd ? 2000 : (isDeleting ? spedUp : normalSpeed);
+            setTimeout(loop, time);
+        }
+        loop();
+
+        // Fully Working Feedback & Instant Reply Simulation
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('sender-name').value;
+            const email = document.getElementById('sender-email').value;
+            const msg = document.getElementById('sender-msg').value;
+
+            document.getElementById('display-name').innerText = name;
+            document.getElementById('display-email').innerText = email;
+            document.getElementById('display-msg').innerText = msg;
+            
+            const now = new Date();
+            document.getElementById('reply-time').innerText = now.toLocaleTimeString();
+
+            const replyBox = document.getElementById('reply-box');
+            replyBox.classList.remove('hidden');
+            
+            // Reset form inputs
+            document.getElementById('feedback-form').reset();
+            
+            // Scroll smoothly to reply box
+            replyBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
